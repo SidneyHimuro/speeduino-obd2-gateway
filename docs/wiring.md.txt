@@ -1,0 +1,70 @@
+# Wiring
+
+# Hardware
+
+- Arduino Mega 2560
+- MCP2515 CAN Module
+- TJA1050 CAN Transceiver
+- Speeduino ECU
+- OBD2 Connector
+
+---
+
+# Arduino Mega 2560 ↔ MCP2515
+
+| MCP2515 | Mega 2560 |
+|---|---|
+| VCC | 5V |
+| GND | GND |
+| CS | D10 |
+| SO | D50 |
+| SI | D51 |
+| SCK | D52 |
+| INT | D2 |
+
+---
+
+# Speeduino ↔ Arduino Mega 2560
+
+| Speeduino | Mega |
+|---|---|
+| TX | RX1 (D19) |
+| RX | TX1 (D18) *(optional)* |
+| GND | GND |
+
+---
+
+# OBD2 Connector ↔ MCP2515
+
+| OBD2 Pin | Function |
+|---|---|
+| 6 | CAN-H |
+| 14 | CAN-L |
+| 4 | GND |
+| 5 | GND |
+
+---
+
+# CAN Configuration
+
+- ISO15765-4
+- 500kbps
+- 11-bit identifiers
+
+---
+
+# Serial Configuration
+
+- Speeduino Secondary Serial
+- Baudrate: 115200
+
+---
+
+# Notes
+
+- Common ground between all devices is mandatory.
+- Use twisted pair wires for CAN-H and CAN-L.
+- Keep CAN wiring short during bench tests.
+- Recommended power supply:
+  - 12V automotive
+  - 5V regulated for Mega and MCP2515
